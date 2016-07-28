@@ -1,5 +1,5 @@
 from flask import Flask, render_template, json, request
-from flask_mysql import MySQL
+from flask.ext.mysql import MySQL
 from werkzeug import generate_password_hash, check_password_hash
 
 mysql = MySQL()
@@ -57,8 +57,6 @@ def signUp():
 @app.route('showSignin')
 def showSignin():
 	return render_template('signin.html')
-
-
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0')
