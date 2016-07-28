@@ -76,7 +76,13 @@ def validateLogin():
 	
 	except Exception as e:
 		return render_template('error.html', error = str(e))
-	
+	finally:
+		cursor.close()
+		con.close()
+		
+@app.route('/userHome')
+def userHome():
+    return render_template('userHome.html')
 
 
 if __name__ == "__main__":
