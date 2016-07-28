@@ -6,8 +6,8 @@ mysql = MySQL()
 app = Flask(__name__)
 
 # MySQL configurations
-app.config['MYSQL_DATABASE_USER'] = ''
-app.config['MYSQL_DATABASE_PASSWORD'] = ''
+app.config['MYSQL_DATABASE_USER'] = 'root'
+app.config['MYSQL_DATABASE_PASSWORD'] = 'Tru$tn01'
 app.config['MYSQL_DATABASE_DB'] = 'BucketList'
 app.config['MYSQL_DATABASE_HOST'] = 'localhost'
 mysql.init_app(app)
@@ -53,6 +53,12 @@ def signUp():
     finally:
         cursor.close() 
         conn.close()
+
+@app.route('showSignin')
+def showSignin():
+	return render_template('signin.html')
+
+
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0')
