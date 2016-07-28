@@ -1,0 +1,9 @@
+{
+  "name": "Roosels Flask App",
+  "env": {
+    "EXTRA_ARGS": {
+      "description": "Any extra arguments that you want to pass to runserver.py.",
+      "required": false
+    }
+  }
+}
