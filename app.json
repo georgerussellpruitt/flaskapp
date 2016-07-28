@@ -1,6 +1,10 @@
 {
   "name": "Roosels Flask App",
   "env": {
+    "PORT": {
+      "description": "What port to bind the web process to.",
+      "value": "80"
+    },
     "EXTRA_ARGS": {
       "description": "Any extra arguments that you want to pass to runserver.py.",
       "required": false
