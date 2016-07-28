@@ -33,7 +33,6 @@ def signUp():
         if _name and _email and _password:
             
             # All Good, let's call MySQL
-            
             conn = mysql.connect()
             cursor = conn.cursor()
             _hashed_password = generate_password_hash(_password)
@@ -57,6 +56,28 @@ def signUp():
 @app.route('/showSignin')
 def showSignin():
 	return render_template('signin.html')
+
+@app.route('/validateLogin', methods=['POST'])
+def validateLogin():
+	try:
+		_username = request.form['inputEmail']
+		_password = request.form['inputPassword']
+		conn = mysql.connect()
+		cursor = conn.cursor()
+		cursor.callproc('sp_validateLogin',(_username,))
+		data = cursor.fetchall()
+		
+		if len(data) > 0:
+			if check_password_hash(str(data[0][3]),_password):
+				session['user'] = data[0][0]
+				return redirect('/userHome')
+			else:
+				return render_template('error',error = 'Wrong Email address or Password.')
+	
+	except Exception as e:
+		return render_template('error.html', error = str(e))
+	
+
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0')
