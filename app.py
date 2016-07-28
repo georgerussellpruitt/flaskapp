@@ -10,5 +10,9 @@ def main():
 def showSignUp():
 	return render_template('signup.html')
 
+@app.route("/signUp")
+def signUp():
+    
+
 if __name__ == "__main__":
 		app.run(host='0.0.0.0')
