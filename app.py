@@ -1,6 +1,8 @@
-from flask import Flask, render_template, json, request
+from flask import Flask, render_template, json, request, session
 from flask.ext.mysql import MySQL
 from werkzeug import generate_password_hash, check_password_hash
+
+app.secret_key = 'shh its a secret!!!!?'
 
 mysql = MySQL()
 app = Flask(__name__)
@@ -82,7 +84,10 @@ def validateLogin():
 		
 @app.route('/userHome')
 def userHome():
-    return render_template('userHome.html')
+	if session.get('user'):
+		return render_template('userHome.html')
+	else:
+		return render_template('error.html',error = 'Unauthorized Access')
 
 
 if __name__ == "__main__":
