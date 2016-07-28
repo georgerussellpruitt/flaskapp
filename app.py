@@ -78,7 +78,7 @@ def validateLogin():
 		return render_template('error.html', error = str(e))
 	finally:
 		cursor.close()
-		con.close()
+		conn.close()
 		
 @app.route('/userHome')
 def userHome():
