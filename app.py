@@ -54,7 +54,7 @@ def signUp():
         cursor.close() 
         conn.close()
 
-@app.route('showSignin')
+@app.route('/showSignin')
 def showSignin():
 	return render_template('signin.html')
 
