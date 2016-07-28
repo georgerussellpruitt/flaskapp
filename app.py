@@ -2,10 +2,9 @@ from flask import Flask, render_template, json, request, session
 from flask.ext.mysql import MySQL
 from werkzeug import generate_password_hash, check_password_hash
 
-app.secret_key = 'shh its a secret!!!!?'
-
 mysql = MySQL()
 app = Flask(__name__)
+app.secret_key = 'shh its a secret!!!!?'
 
 # MySQL configurations
 app.config['MYSQL_DATABASE_USER'] = 'root'
