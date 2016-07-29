@@ -13,8 +13,8 @@ app.secret_key = 'shh its a secret!!!!?'
 app.config['MYSQL_DATABASE_USER'] = os.environ['DB_USER']
 app.config['MYSQL_DATABASE_PASSWORD'] = os.environ['DB_PASS']
 app.config['MYSQL_DATABASE_DB'] = os.environ['DB_NAME']
-#app.config['MYSQL_DATABASE_HOST'] = os.environ['CLEARDB_DATABASE_URL']
-app.config['MYSQL_DATABASE_HOST'] = os.environ['DB_HOST']
+app.config['MYSQL_DATABASE_HOST'] = os.environ['CLEARDB_DATABASE_URL']
+#app.config['MYSQL_DATABASE_HOST'] = os.environ['DB_HOST']
 mysql.init_app(app)
 
 
