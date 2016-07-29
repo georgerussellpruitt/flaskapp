@@ -8,10 +8,13 @@ app = Flask(__name__)
 app.secret_key = 'shh its a secret!!!!?'
 
 # MySQL configurations
-app.config['MYSQL_DATABASE_USER'] = 'root'
-app.config['MYSQL_DATABASE_PASSWORD'] = 'Tru$tn01'
-app.config['MYSQL_DATABASE_DB'] = 'BucketList'
+
+#attempt at grabbing env vars
+app.config['MYSQL_DATABASE_USER'] = os.environ['DB_USER']
+app.config['MYSQL_DATABASE_PASSWORD'] = os.environ['DB_PASS']
+app.config['MYSQL_DATABASE_DB'] = os.environ['DB_NAME']
 app.config['MYSQL_DATABASE_HOST'] = 'localhost'
+#app.config['MYSQL_DATABASE_HOST'] = os.environ['DB_HOST']
 mysql.init_app(app)
 
 
